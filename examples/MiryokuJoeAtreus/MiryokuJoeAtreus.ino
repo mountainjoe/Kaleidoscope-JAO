@@ -100,14 +100,14 @@ KEYMAPS(
       // Left
       DV_QUOT,         DV_COMM,             DV_DOT,               DV_P,           DV_Y,
       DV_A,            DV_O,                DV_E,                 DV_U,           DV_I,
-      DV_SCLN,         DV_Q,                DV_J,                 DV_K,           DV_X,            XXX,
-      XXX,             XXX,                 XXX,                  Key_Esc,        Key_Space,       Key_Tab,
+      DV_SCLN,         DV_Q,                DV_J,                 DV_K,           DV_X,            Key_Delete,
+      XXX,             XXX,                 XXX,                  Key_Esc,        Key_Space,       Key_Backspace,
 
       // Right
                        DV_F,                DV_G,                 DV_C,           DV_R,            DV_L,
                        DV_D,                DV_H,                 DV_T,           DV_N,            DV_S,
       XXX,             DV_B,                DV_M,                 DV_W,           DV_V,            DV_Z,
-      Key_Backspace,   Key_Enter,           Key_Delete,           XXX,            XXX,             XXX
+      Key_Tab,         Key_Enter,           Key_Delete,           XXX,            XXX,             XXX
   ),
 
   [MEDIA] = KEYMAP_STACKED
@@ -163,7 +163,7 @@ KEYMAPS(
       XXX,        XXX,      DV_LCBR,            DV_RCBR,           XXX,
       DV_GRV,     XXX,      Key_LeftParen,      Key_RightParen,    XXX,
       XXX,        XXX,      DV_LBRC,            DV_RBRC,           XXX,                 XXX,
-      XXX,        XXX,      XXX,                XXX,               Key_Underscore,      XXX,
+      XXX,        XXX,      XXX,                Key_Backslash,     Key_Underscore,      XXX,
 
       // RIGHT
                        XXX,                  XXX,                   XXX,             XXX,              XXX,
@@ -183,7 +183,7 @@ KEYMAPS(
       // RIGHT
                         XXX,               Key_7,         Key_8,        Key_9,           DV_SLSH,
                         Key_Semicolon,     Key_4,         Key_5,        Key_6,           DV_MINS,
-      Key_Backtick,     XXX,               Key_1,         Key_2,        Key_3,           Key_Backslash,
+      Key_CapsLock,     XXX,               Key_1,         Key_2,        Key_3,           DV_EQL,
       ___,              DV_DOT,            Key_0,         DV_EQL,       ___,             ___
     ),
 
@@ -231,10 +231,10 @@ void setup() {
 
   QUKEYS(
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 0), Key_LeftGui),      // A / MacCommand
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 1), Key_LeftAlt),      // O / Alt
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 1), Key_LeftGui),      // O / Alt
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 2), Key_LeftControl),  // E / Control
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 3), Key_LeftShift),    // U / Shift
-    kaleidoscope::plugin::Qukey(0, KeyAddr(2, 1), Key_RightAlt),     // I / AltGr
+//    kaleidoscope::plugin::Qukey(0, KeyAddr(2, 1), Key_RightAlt),     //  / AltGr
 
     kaleidoscope::plugin::Qukey(0, KeyAddr(3, 3), MO(NAV)),        // Esc / Nav
     kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), MO(NUM)),          // Space / Num
@@ -242,7 +242,7 @@ void setup() {
 
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), Key_LeftShift),    // H / Shift
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 9), Key_LeftControl),  // T / Control
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 10), Key_LeftAlt),     // N / Alt
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 10), Key_LeftGui),     // N / Alt
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 11), Key_LeftGui),     // S / MacCommand
 
 //  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), MO()),          // Enter / ??
