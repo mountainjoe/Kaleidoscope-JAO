@@ -32,6 +32,7 @@
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Qukeys.h"
 #include "Kaleidoscope-SpaceCadet.h"
+#include <Kaleidoscope-AutoShift.h>
 #include "Kaleidoscope-DynamicMacros.h"
 #include "Kaleidoscope-LayerNames.h"
 
@@ -59,6 +60,7 @@ enum {
   UPPER
 };
 
+// the keymap doesn't appear to take effect. Probably something to do with the Chrysalis magic thingie.
 // clang-format off
 KEYMAPS(
   [QWERTY] = KEYMAP_STACKED
@@ -66,12 +68,12 @@ KEYMAPS(
        Key_Q   ,Key_W   ,Key_E       ,Key_R         ,Key_T
       ,Key_A   ,Key_S   ,Key_D       ,Key_F         ,Key_G
       ,Key_Z   ,Key_X   ,Key_C       ,Key_V         ,Key_B, Key_Backtick
-      ,Key_Esc ,Key_Tab ,Key_LeftGui ,Key_LeftShift ,Key_Backspace ,Key_LeftControl
+      ,Key_Esc ,Key_Tab ,Key_LeftGui ,Key_LeftShift ,Key_Space     ,Key_Backspace
 
-                     ,Key_Y     ,Key_U      ,Key_I     ,Key_O      ,Key_P
-                     ,Key_H     ,Key_J      ,Key_K     ,Key_L      ,Key_Semicolon
-       ,Key_Backslash,Key_N     ,Key_M      ,Key_Comma ,Key_Period ,Key_Slash
-       ,Key_LeftAlt  ,Key_Space ,MO(FUN)    ,Key_Minus ,Key_Quote  ,Key_Enter
+                         ,Key_Y     ,Key_U      ,Key_I     ,Key_O      ,Key_P
+                         ,Key_H     ,Key_J      ,Key_K     ,Key_L      ,Key_Semicolon
+       ,Key_Backslash    ,Key_N     ,Key_M      ,Key_Comma ,Key_Period ,Key_Slash
+       ,Key_LeftControl  ,Key_Enter ,MO(FUN)    ,Key_Minus ,Key_Quote  ,Key_LeftAlt
   ),
 
   [FUN] = KEYMAP_STACKED
@@ -139,6 +141,7 @@ KALEIDOSCOPE_INIT_PLUGINS(
   // Chrysalis. Keys with secondary actions will have their primary action
   // performed when tapped, but the secondary action when held.
   Qukeys,
+  AutoShift, // phew autoshift!
 
   // SpaceCadet can turn your shifts into parens on tap, while keeping them as
   // Shifts when held. SpaceCadetConfig lets Chrysalis configure some aspects of

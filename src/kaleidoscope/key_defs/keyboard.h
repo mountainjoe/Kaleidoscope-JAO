@@ -240,3 +240,111 @@
 #define Key_RightShift             Key(HID_KEYBOARD_RIGHT_SHIFT, KEY_FLAGS)
 #define Key_RightAlt               Key(HID_KEYBOARD_RIGHT_ALT, KEY_FLAGS)
 #define Key_RightGui               Key(HID_KEYBOARD_RIGHT_GUI, KEY_FLAGS)
+
+// DVORAK Keys
+
+// clang-format off
+
+/*
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+ * │ ` │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ [ │ ] │       │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+ * │     │ ' │ , │ . │ P │ Y │ F │ G │ C │ R │ L │ / │ = │  \  │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤
+ * │      │ A │ O │ E │ U │ I │ D │ H │ T │ N │ S │ - │        │
+ * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤
+ * │        │ ; │ Q │ J │ K │ X │ B │ M │ W │ V │ Z │          │
+ * ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+ * │    │    │    │                        │    │    │    │    │
+ * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+ */
+// Row 1
+#define DV_GRV  Key_Backtick  // `
+#define DV_1    Key_1    // 1
+#define DV_2    Key_2    // 2
+#define DV_3    Key_3    // 3
+#define DV_4    Key_4    // 4
+#define DV_5    Key_5    // 5
+#define DV_6    Key_6    // 6
+#define DV_7    Key_7    // 7
+#define DV_8    Key_8    // 8
+#define DV_9    Key_9    // 9
+#define DV_0    Key_0    // 0
+#define DV_LBRC Key_Minus // [
+#define DV_RBRC Key_Equals  // ]
+// Row 2
+#define DV_QUOT Key_Q    // '
+#define DV_COMM Key_W    // ,
+#define DV_DOT  Key_E    // .
+#define DV_P    Key_R    // P
+#define DV_Y    Key_T    // Y
+#define DV_F    Key_Y    // F
+#define DV_G    Key_U    // G
+#define DV_C    Key_I    // C
+#define DV_R    Key_O    // R
+#define DV_L    Key_P    // L
+#define DV_SLSH Key_LeftBracket // /
+#define DV_EQL  Key_RightBracket // =
+#define DV_BSLS Key_Backslash // (backslash)
+// Row 3
+#define DV_A    Key_A    // A
+#define DV_O    Key_S    // O
+#define DV_E    Key_D    // E
+#define DV_U    Key_F    // U
+#define DV_I    Key_G    // I
+#define DV_D    Key_H    // D
+#define DV_H    Key_J    // H
+#define DV_T    Key_K    // T
+#define DV_N    Key_L    // N
+#define DV_S    Key_Semicolon // S
+#define DV_MINS Key_Quote // -
+// Row 4
+#define DV_SCLN Key_Z    // ;
+#define DV_Q    Key_X    // Q
+#define DV_J    Key_C    // J
+#define DV_K    Key_V    // K
+#define DV_X    Key_B    // X
+#define DV_B    Key_N    // B
+#define DV_M    Key_M    // M
+#define DV_W    Key_Comma // W
+#define DV_V    Key_Period  // V
+#define DV_Z    Key_Slash // Z
+
+/* Shifted symbols
+ * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+ * │ ~ │ ! │ @ │ # │ $ │ % │ ^ │ & │ * │ ( │ ) │ { │ } │       │
+ * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+ * │     │ " │ < │ > │   │   │   │   │   │   │   │ ? │ + │  |  │
+ * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤
+ * │      │   │   │   │   │   │   │   │   │   │   │ _ │        │
+ * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤
+ * │        │ : │   │   │   │   │   │   │   │   │   │          │
+ * ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+ * │    │    │    │                        │    │    │    │    │
+ * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+ */
+// Row 1
+// #define DV_TILD S(DV_GRV)  // ~
+// #define DV_EXLM S(DV_1)    // !
+// #define DV_AT   S(DV_2)    // @
+// #define DV_HASH S(DV_3)    // #
+// #define DV_DLR  S(DV_4)    // $
+// #define DV_PERC S(DV_5)    // %
+// #define DV_CIRC S(DV_6)    // ^
+// #define DV_AMPR S(DV_7)    // &
+// #define DV_ASTR S(DV_8)    // *
+// #define DV_LPRN S(DV_9)    // (
+// #define DV_RPRN S(DV_0)    // )
+// #define DV_LCBR S(DV_LBRC) // {
+// #define DV_RCBR S(DV_RBRC) // }
+// // Row 2
+// #define DV_DQUO S(DV_QUOT) // "
+// #define DV_LABK S(DV_COMM) // <
+// #define DV_RABK S(DV_DOT)  // >
+// #define DV_QUES S(DV_SLSH) // ?
+// #define DV_PLUS S(DV_EQL)  // +
+// #define DV_PIPE S(DV_BSLS) // |
+// // Row 3
+// #define DV_UNDS S(DV_MINS) // _
+// // Row 4
+// #define DV_COLN S(DV_SCLN) // :

@@ -32,7 +32,7 @@ case ${OS} in
             export -n BASH_VERSION
             exec /bin/dash "$0" "$@"
         fi
-        DEVICE="${DEVICE:-/dev/cu.usbmodemCkbio01E}"
+        DEVICE="${DEVICE:-/dev/cu.usbmodemCDatreus1}"
         ;;
     *)
         echo "Error Unknown OS : ${OS}" >&2
