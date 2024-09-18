@@ -114,7 +114,7 @@ KEYMAPS(
   (
       // Left
       XXX,             XXX,                  XXX,                   XXX,             XXX,
-      Key_LeftGui,     Key_LeftControl,      Key_LeftAlt,           Key_LeftShift,   XXX,
+      XXX,             Key_LeftControl,      Key_LeftGui,           Key_LeftShift,   XXX,
       XXX,             XXX,                  XXX,                   XXX,             XXX,              ___,
       ___,             ___,                  ___,                   XXX,             XXX,              XXX,
 
@@ -146,7 +146,7 @@ KEYMAPS(
   (
       // Left
       XXX,             XXX,                  XXX,                   XXX,             XXX,
-      Key_LeftGui,     Key_LeftControl,      Key_LeftAlt,           Key_LeftShift,   XXX,
+      XXX,             Key_LeftControl,      Key_LeftGui,           Key_LeftShift,   XXX,
       XXX,             XXX,                  XXX,                   XXX,             XXX,              ___,
       XXX,             XXX,                  XXX,                   ___,             ___,              ___,
 
@@ -167,7 +167,7 @@ KEYMAPS(
 
       // RIGHT
                        XXX,                  XXX,                   XXX,             XXX,              XXX,
-                       XXX,                  Key_LeftShift,         Key_LeftAlt,     Key_LeftControl,  Key_LeftGui,
+                       XXX,                  Key_LeftShift,         Key_LeftGui,     Key_LeftControl,  XXX,
       ___,             XXX,                  XXX,                   XXX,             XXX,              XXX,
       XXX,             XXX,                  XXX,                   ___,             ___,              ___
    ),
@@ -176,7 +176,7 @@ KEYMAPS(
    (
       // Left
       XXX,             XXX,                  XXX,                   XXX,             XXX,
-      Key_LeftGui,     Key_LeftControl,      Key_LeftAlt,           Key_LeftShift,   XXX,
+      XXX,             Key_LeftControl,      Key_LeftGui,           Key_LeftShift,   XXX,
       XXX,             XXX,                  XXX,                   XXX,             XXX,              ___,
       XXX,             XXX,                  XXX,                   ___,             ___,              ___,
 
@@ -197,7 +197,7 @@ KEYMAPS(
  
       // RIGHT
                        XXX,                  XXX,                   XXX,             XXX,              XXX,
-                       XXX,                  Key_LeftShift,         Key_LeftAlt,     Key_LeftControl,  Key_LeftGui,
+                       XXX,                  Key_LeftShift,         Key_LeftGui,     Key_LeftControl,  XXX,
       ___,             XXX,                  XXX,                   XXX,             XXX,              XXX,
       XXX,             XXX,                  XXX,                   ___,             ___,              ___
     )
@@ -230,24 +230,24 @@ void setup() {
   EEPROMKeymap.setup(10);
 
   QUKEYS(
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 0), Key_LeftGui),      // A / MacCommand
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 1), Key_LeftGui),      // O / Alt
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 2), Key_LeftControl),  // E / Control
+//    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 0), Key_LeftGui),    // A / MacCommand
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 1), Key_LeftControl),  // O / Control
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 2), Key_LeftGui),      // E / MacCommand
     kaleidoscope::plugin::Qukey(0, KeyAddr(1, 3), Key_LeftShift),    // U / Shift
-//    kaleidoscope::plugin::Qukey(0, KeyAddr(2, 1), Key_RightAlt),     //  / AltGr
+    kaleidoscope::plugin::Qukey(0, KeyAddr(2, 3), Key_LeftAlt),      // K / Option
 
     kaleidoscope::plugin::Qukey(0, KeyAddr(3, 3), MO(NAV)),        // Esc / Nav
-    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), MO(NUM)),          // Space / Num
-    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 5), MO(MOUSE)),          // Tab / Mouse
+    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 4), MO(NUM)),        // Space / Num
+    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 5), MO(MOUSE)),      // Tab / Mouse
 
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), Key_LeftShift),    // H / Shift
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 9), Key_LeftControl),  // T / Control
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 10), Key_LeftGui),     // N / Alt
-    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 11), Key_LeftGui),     // S / MacCommand
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), Key_LeftShift),   // H / Shift
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 8), Key_LeftAlt),     // M / Option
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 9), Key_LeftGui),     // T / MacCommand
+    kaleidoscope::plugin::Qukey(0, KeyAddr(1, 10),Key_LeftControl), // N / Control
 
 //  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 6), MO()),          // Enter / ??
-    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 7), MO(SYM)),          // Backspace / Symbols
-//  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 8), MO())            // Delete / ??
+    kaleidoscope::plugin::Qukey(0, KeyAddr(3, 7), MO(SYM)),       // Backspace / Symbols
+//  kaleidoscope::plugin::Qukey(0, KeyAddr(3, 8), MO())           // Delete / ??
   )
 
   MouseKeys.accelDelay = 10;
@@ -255,6 +255,13 @@ void setup() {
   MouseKeys.speed = 2;
   MouseKeys.setSpeedLimit(42);
   MouseKeys.wheelDelay = 100;
+
+  // TODO figure out Qukey timing changes.
+  Qukeys.setHoldTimeout(250); // ms
+  Qukeys.setMaxIntervalForTapRepeat(200); // ms
+  Qukeys.setOverlapThreshold(100); // 100percent
+  Qukeys.setMinimumHoldTime(50); // minimum time qkey must be held in ms to resolve to modifier
+  Qukeys.setMinimumPriorInterval(75); // ms
 }
 
 void loop() {
