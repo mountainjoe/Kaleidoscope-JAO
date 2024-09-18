@@ -257,11 +257,11 @@ void setup() {
   MouseKeys.wheelDelay = 100;
 
   // TODO figure out Qukey timing changes.
-  Qukeys.setHoldTimeout(250); // ms
+  Qukeys.setHoldTimeout(350); // ms
   Qukeys.setMaxIntervalForTapRepeat(200); // ms
   Qukeys.setOverlapThreshold(100); // 100percent
-  Qukeys.setMinimumHoldTime(50); // minimum time qkey must be held in ms to resolve to modifier
-  Qukeys.setMinimumPriorInterval(75); // ms
+  Qukeys.setMinimumHoldTime(150); // minimum time qkey must be held in ms to resolve to modifier
+  Qukeys.setMinimumPriorInterval(200); // ms
 }
 
 void loop() {
