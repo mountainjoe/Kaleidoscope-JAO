@@ -261,7 +261,7 @@ void setup() {
   Qukeys.setMaxIntervalForTapRepeat(200); // ms
   Qukeys.setOverlapThreshold(100); // 100percent
   Qukeys.setMinimumHoldTime(150); // minimum time qkey must be held in ms to resolve to modifier
-  Qukeys.setMinimumPriorInterval(200); // ms
+  Qukeys.setMinimumPriorInterval(100); // ms
 }
 
 void loop() {
